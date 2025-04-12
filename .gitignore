@@ -1,0 +1,27 @@
+
+##### **.gitignore**
+```gitignore
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.env
+*.egg-info/
+dist/
+build/
+
+# Docker
+*.log
+*.pid
+*.seed
+
+# IDEs
+.vscode/
+.idea/
+
+# macOS
+.DS_Store

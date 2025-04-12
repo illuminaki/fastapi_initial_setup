@@ -1,0 +1,22 @@
+# Docker Compose configuration for NFT Creator Backend
+# Version 3.9 supports all modern Docker features we need
+version: "3.9"
+
+services:
+  # Main FastAPI service configuration
+  fastapi:
+    # Build from local Dockerfile
+    build: .
+    # Custom container name for easier identification
+    container_name: fastapi-initial-setup
+    # Map host port 8000 to container port 8000
+    ports:
+      - "8000:8000"
+    # Mount local directory to container for hot-reload
+    volumes:
+      - .:/app
+    # Set environment variables
+    environment:
+      - ENV=development  # Enable development features
+    # Override default command to enable hot-reload
+    command: ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000", "--reload"]
